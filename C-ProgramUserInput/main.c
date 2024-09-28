@@ -11,9 +11,13 @@
 #include <stdio.h> 
 // for strings
 #include <string.h>
+// for debug out
+#include "../SHARED/debug.h"
+const debugEnabled_t debugToggle = ON;
 
 // Defines / Constants
 #define FLAG_PREFIX_INDICATOR "--"
+
 
 // Forward Decleration of Help Function
 void printHelp(void);
@@ -47,7 +51,7 @@ int main(int argc, char ** argv)
         // If flag prefix found, parse flag,value pair
         if( strncmp(FLAG_PREFIX_INDICATOR, argv[inputs], 2) == 0 )
         {
-            printf("Flag Prefix Indicator Found\n");
+            debugOut("Flag Prefix Indicator Found\n", debugToggle);
 
             // Parse Out Flag
             

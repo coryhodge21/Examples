@@ -1,9 +1,11 @@
-exec : main.o
-	cc -o exec main.o
-	rm -f main.o
+exec : main.o debug.o
+	gcc -Wall -g -o exec main.o debug.o
+	
+main.o: main.c
+	gcc -Wall -c main.c
 
-main.o : 
-	cc -c main.c
+debug.o: ../SHARED/debug.c
+	cc -c ../SHARED/debug.c ../SHARED/debug.h 
 
-clean :
-	rm -rf exec main.o
+clean:
+	rm -f exec main.o debug.o
