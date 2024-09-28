@@ -1,0 +1,2 @@
+
+int localHeaderFx(int num);
