@@ -6,6 +6,8 @@
 
 #include <iostream>
 
+#define DEBUG
+
 class DebugCout {
 
     public:
