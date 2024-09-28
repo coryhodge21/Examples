@@ -1,5 +1,5 @@
 # out will be the name of the executable
-out : main.o localHeader.o
+out : main.o localHeader.o debug.o
 	cc -o out main.o localHeader.o ../SHARED/debug.o
 
 # only needed for basic main.c program
@@ -15,4 +15,4 @@ debug.o: ../SHARED/debug.c ../SHARED/debug.h
 	cc -c debug.c
 
 clean : 
-	rm -f out main.o localHeader.o debug.o
+	rm -f out main.o localHeader.o debug.
