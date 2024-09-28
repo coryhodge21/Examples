@@ -13,10 +13,12 @@
 #include <string.h>
 // for debug out
 #include "../SHARED/debug.h"
-const debugEnabled_t debugToggle = ON;
+const debugEnabled_t debugToggle = DEBUG_ENABLED_ON;
 
 // Defines / Constants
 #define FLAG_PREFIX_INDICATOR "--"
+#define CLEAR_FLAG_PREFIX "\0\0"
+const unsigned char CLEAR_FLAG_PREFIX_LEN = 2;
 
 
 // Forward Decleration of Help Function
@@ -42,20 +44,27 @@ int main(int argc, char ** argv)
         if(inputs == 0)
         {
             // display prog name
-            printf("Exec %s with flags :\n", argv[inputs]);
+            debugOut(debugToggle,"Executing Program: %s with flags :\n", argv[inputs]);
             continue;
         }
-
-        printf("argv[%d]=%s\n",inputs, argv[inputs]);
 
         // If flag prefix found, parse flag,value pair
         if( strncmp(FLAG_PREFIX_INDICATOR, argv[inputs], 2) == 0 )
         {
-            debugOut("Flag Prefix Indicator Found\n", debugToggle);
+            debugOut(debugToggle, "Flag Prefix Indicator Found\n");
 
-            // Parse Out Flag
-            
+            // take a copy of current char * from argv
+            char * flag = argv[inputs];
 
+            // trim leading Prefix
+            strncpy(flag,CLEAR_FLAG_PREFIX, CLEAR_FLAG_PREFIX_LEN);
+            flag=&flag[CLEAR_FLAG_PREFIX_LEN];
+
+            debugOut(debugToggle,"argv[%d]=%s\n",inputs, flag);
+
+        }
+        else{
+            debugOut(debugToggle,"Unrecognized :: argv[%d]=%s\n",inputs, argv[inputs]);
         }
 
     }
