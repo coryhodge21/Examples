@@ -14,4 +14,5 @@ localHeader.o: localHeader.c localHeader.h
 debug.o: ../SHARED/debug.c ../SHARED/debug.h 
 	cc -c debug.c
 
-clean : rm -f out main.o localHeader.o debug.o
+clean : 
+	rm -f out main.o localHeader.o debug.o
