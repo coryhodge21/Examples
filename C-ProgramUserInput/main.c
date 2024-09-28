@@ -9,6 +9,8 @@
 
 // for printf
 #include <stdio.h> 
+// for strings
+#include <string.h>
 
 // Defines / Constants
 #define FLAG_PREFIX_INDICATOR "--"
@@ -25,12 +27,10 @@ int main(int argc, char ** argv)
     // Check if any arguments passed
     for(int inputs = 0; inputs < argc; inputs++)
     {
-        printf("inputs = %d\n",inputs);
-
-        
         // skip program executable name
         if(inputs == 0)
         {
+            
             continue;
         }
 
