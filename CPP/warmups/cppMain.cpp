@@ -4,12 +4,16 @@
 #include <iostream>
 
 // For DebugCout()
-#include "./Shared/debug.hpp"
+#include "../../Shared/CPP/debug.hpp"
 
-
+/**
+ * 
+ */
 bool parseProgramInput(const int argc, const char ** argv);
 
-
+/**
+ * 
+ */
 int main(int argc, char ** argv)
 {
     std::cout << "Warm Ups" << std::endl;
@@ -22,6 +26,7 @@ int main(int argc, char ** argv)
         const char** const_argv = const_cast<const char**>(argv);
         parseProgramInput(argc, const_argv);
     }
+    
 }
 
 /**
